@@ -5,17 +5,17 @@ var Queue = function() {
   this.qSize  = 0;
   this.first = 0;
   this.last = 0;
-  this.storage = 0;
+  this.storage = {};
 };
 Queue.prototype.enqueue = function(value){
-  this.storage[this.first] = value;
+  this.storage[this.last] = value;
   this.last++;
   this.qSize++;
 };
 Queue.prototype.dequeue = function(){
   if(this.qSize > 0){
-    this.record = this.storage[this.last];
-    delete this.storage[this.last];
+    this.record = this.storage[this.first];
+    delete this.storage[this.first];
     this.qSize--;
     this.first++;
     return this.record;
@@ -23,5 +23,6 @@ Queue.prototype.dequeue = function(){
 };
 Queue.prototype.size = function(){
   return this.qSize;
+  // return this.last - this.first;
 }
 var newQueue = new Queue();

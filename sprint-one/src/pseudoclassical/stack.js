@@ -10,8 +10,8 @@ Stack.prototype.push = function(value) {
 };
 Stack.prototype.pop = function() {
   if (this.stackSize > 0) {
-    this.record = this.storage[this.stackSize];
-    delete this.storage[this.stackSize];
+    this.record = this.storage[this.stackSize - 1];
+    delete this.storage[this.stackSize - 1];
     this.stackSize--;
     return this.record;
   }
