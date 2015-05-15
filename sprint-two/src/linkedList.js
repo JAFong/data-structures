@@ -22,20 +22,17 @@ var LinkedList = function(){
   };
 
   list.contains = function(target){
+    var result = false;
     var findNumber = function(node) {
-      if (target === 5) {
-        debugger;
-      }
       if (node.value === target) {
-        return true;
+        result = true;
       } else if (node.next) {
         findNumber(node.next);
       }
       // return false;
     };
-    if (findNumber(list.head)) {
-      return findNumber(list.head);
-    }
+    findNumber(list.head);
+    return result;
   };
 
   return list;
