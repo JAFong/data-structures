@@ -3,7 +3,6 @@ var Set = function(){
   set._storage = [];
   return set;
 };
-
 var setPrototype = {};
 
 setPrototype.add = function(item){
@@ -18,7 +17,6 @@ setPrototype.contains = function(item){
     return false;
   }
 };
-
 setPrototype.remove = function(item){
   var itemIndex =  _.indexOf(this._storage, item);
   if(itemIndex > -1){

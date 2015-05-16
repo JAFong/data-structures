@@ -37,7 +37,6 @@ Graph.prototype.removeNode = function(node){
 };
 
 Graph.prototype.hasEdge = function(fromNode, toNode){
-  debugger;
   var truthy = false;
   var toInFrom =_.indexOf(this[fromNode].edges, toNode) > -1;
   var fromInTo = _.indexOf(this[toNode].edges, fromNode) > -1;
