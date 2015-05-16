@@ -3,11 +3,11 @@
 var Graph = function(){
 
 };
-var Node = function(){
+var GraphNode = function(){
   this.edges = [];
 };
 Graph.prototype.addNode = function(node){
-  var newNode = new Node();
+  var newNode = new GraphNode();
   this[node] = newNode;
 };
 Graph.prototype.contains = function(node){
@@ -37,14 +37,29 @@ Graph.prototype.removeNode = function(node){
 };
 
 Graph.prototype.hasEdge = function(fromNode, toNode){
+  debugger;
+  var truthy = false;
+  var toInFrom =_.indexOf(this[fromNode].edges, toNode) > -1;
+  var fromInTo = _.indexOf(this[toNode].edges, fromNode) > -1;
+  if ( toInFrom && fromInTo ) {
+    truthy = true;
+  }
+  return truthy;
 };
 
 Graph.prototype.addEdge = function(fromNode, toNode){
-  var keys = Object.keys(this);
-  fromNode.edges.push(keys.indexOf(toNode));
+  // var keys = Object.keys(this);
+  this[fromNode].edges.push(toNode);
+  this[toNode].edges.push(fromNode);
 };
 
 Graph.prototype.removeEdge = function(fromNode, toNode){
+  var indexOne = _.indexOf(this[toNode].edges, fromNode);
+  var indexTwo = _.indexOf(this[fromNode].edges, toNode);
+  if ( indexOn && toIndex ) {
+    this[toNode].edges.splice(indexOn, 1);
+    this[fromNode].edges.splice(toIndex, 1);
+  }
 };
 
 Graph.prototype.forEachNode = function(cb){

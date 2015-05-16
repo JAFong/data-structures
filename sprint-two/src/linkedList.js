@@ -26,10 +26,10 @@ var LinkedList = function(){
     var findNumber = function(node) {
       if (node.value === target) {
         result = true;
+        return;
       } else if (node.next) {
         findNumber(node.next);
       }
-      // return false;
     };
     findNumber(list.head);
     return result;
