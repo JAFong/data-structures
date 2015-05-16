@@ -63,11 +63,16 @@ Graph.prototype.removeEdge = function(fromNode, toNode){
 };
 
 Graph.prototype.forEachNode = function(cb){
-  _.each(this, function(obj){
-    if (this.hasOwnProperty(obj)) {
-      cb(obj);
+  for(var key in this){
+    if(this.hasOwnProperty(key)){
+      cb(key);
     }
-  });
+  }
+  // _.each(this, function(obj){
+  //   if (this.hasOwnProperty(obj)) {
+  //     cb(obj);
+  //   }
+  // });
 };
 
 /*
